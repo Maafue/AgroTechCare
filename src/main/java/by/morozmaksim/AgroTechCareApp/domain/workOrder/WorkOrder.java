@@ -1,9 +1,11 @@
 package by.morozmaksim.AgroTechCareApp.domain.workOrder;
 
+import by.morozmaksim.AgroTechCareApp.domain.job.Job;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class WorkOrder {
 
@@ -18,5 +20,6 @@ public class WorkOrder {
     private String placeOfWork;
     private String contactPerson;
     private String contactPhoneNumber;
+    private List<Job> jobs;
 
 }

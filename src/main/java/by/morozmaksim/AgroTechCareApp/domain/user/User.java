@@ -14,6 +14,7 @@ public class User {
     private String username;
     private String password;
     private String passwordConfirmation;
+    private boolean isMechanic;
     private LegalEntity legalEntity;
     private List<Contract> contracts;
 

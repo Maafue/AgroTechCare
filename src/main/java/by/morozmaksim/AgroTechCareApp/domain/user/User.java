@@ -2,9 +2,11 @@ package by.morozmaksim.AgroTechCareApp.domain.user;
 
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class User {
 
     private Long id;

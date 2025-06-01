@@ -1,6 +1,7 @@
 package by.morozmaksim.AgroTechCareApp.web.dto;
 
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,7 @@ public class UserDto {
 //    private String password;
 //    private String passwordConfirmation;
     private boolean isMechanic;
-    private LegalEntity legalEntity;
+//    private Long legalEntityId;
+    private LegalEntityDto legalEntityDto;
+
 }

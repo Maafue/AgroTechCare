@@ -18,8 +18,6 @@ public class LegalEntityController {
     private final LegalEntityMapper legalEntityMapper;
     private final LegalEntityService legalEntityService;
 
-
-
     @PutMapping
     public LegalEntityDto update(@RequestBody LegalEntityDto legalEntityDto) {
         LegalEntity legalEntity = legalEntityMapper.toEntity(legalEntityDto);

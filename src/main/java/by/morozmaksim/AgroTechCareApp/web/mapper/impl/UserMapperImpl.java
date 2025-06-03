@@ -1,55 +1,71 @@
 package by.morozmaksim.AgroTechCareApp.web.mapper.impl;
 
+import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.web.dto.LegalEntityDto;
 import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapperImpl implements UserMapper {
-//    private Long id;
-//    private String firstName;
-//    private String middleName;
-//    private String lastName;
-//    //    private String username;
-////    private String password;
-////    private String passwordConfirmation;
-//    private boolean isMechanic;
-//    private Long legalEntity_id;
+
     @Override
     public UserDto toDto(User user) {
-        if ( user == null ) {
+        if (user == null) {
             return null;
         }
-
         UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setMiddleName(user.getMiddleName());
+        userDto.setLastName(user.getLastName());
+        userDto.setMechanic(user.isMechanic());
 
-        userDto.setId( user.getId() );
-        userDto.setFirstName( user.getFirstName());
-        userDto.setMiddleName( user.getMiddleName() );
-        userDto.setLastName( user.getLastName() );
-        userDto.setMechanic( user.isMechanic());
-        userDto.setLegalEntity( user.getLegalEntity());
+        setLegalEntityDtoToUserDto(user, userDto);
 
         return userDto;
 
     }
 
     @Override
-    public User toEntity(UserDto dto) {
-        if ( dto == null ) {
+    public User toEntity(UserDto userDto) {
+        if (userDto == null) {
             return null;
         }
 
         User user = new User();
 
-        user.setId( dto.getId() );
-        user.setFirstName( dto.getFirstName());
-        user.setMiddleName( dto.getMiddleName() );
-        user.setLastName( dto.getLastName() );
-        user.setMechanic( dto.isMechanic());
-        user.setLegalEntity(dto.getLegalEntity());
+        user.setId(userDto.getId());
+        user.setFirstName(userDto.getFirstName());
+        user.setMiddleName(userDto.getMiddleName());
+        user.setLastName(userDto.getLastName());
+        user.setMechanic(userDto.isMechanic());
+
+        setLegalEntityDtoToUser(user, userDto);
 
         return user;
     }
-}
+
+    void setLegalEntityDtoToUserDto(User user, UserDto userDto){
+        if (user.getLegalEntity() != null) {
+            LegalEntityDto legalEntityDto = new LegalEntityDto();
+            legalEntityDto.setId(user.getLegalEntity().getId());
+            legalEntityDto.setName(user.getLegalEntity().getName());
+            legalEntityDto.setAddress(user.getLegalEntity().getAddress());
+            legalEntityDto.setInn(user.getLegalEntity().getInn());
+
+            userDto.setLegalEntity(legalEntityDto);
+        }
+    }
+
+    void setLegalEntityDtoToUser(User user, UserDto userDto){
+        if (userDto.getLegalEntity() != null) {
+            LegalEntity legalEntity = new LegalEntity();
+            legalEntity.setId(userDto.getLegalEntity().getId());
+            legalEntity.setInn(userDto.getLegalEntity().getInn());
+            legalEntity.setAddress(userDto.getLegalEntity().getAddress());
+            legalEntity.setName(userDto.getLegalEntity().getName());
+            user.setLegalEntity(legalEntity);
+        }
+    }}

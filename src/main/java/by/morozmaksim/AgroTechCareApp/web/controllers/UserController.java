@@ -18,14 +18,10 @@ public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @PostMapping()
+    @PostMapping
     public UserDto create(@RequestBody UserDto userDto){
-
         User user = userMapper.toEntity(userDto);
-
         User createdUser = userService.create(user);
-
         return userMapper.toDto(createdUser);
-
     }
 }

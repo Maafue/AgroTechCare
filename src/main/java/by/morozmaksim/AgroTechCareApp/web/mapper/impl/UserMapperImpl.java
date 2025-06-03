@@ -25,7 +25,6 @@ public class UserMapperImpl implements UserMapper {
         setLegalEntityDtoToUserDto(user, userDto);
 
         return userDto;
-
     }
 
     @Override

@@ -15,22 +15,14 @@ public class UserMapperImpl implements UserMapper {
         if (user == null) {
             return null;
         }
-
         UserDto userDto = new UserDto();
-
         userDto.setId(user.getId());
         userDto.setFirstName(user.getFirstName());
         userDto.setMiddleName(user.getMiddleName());
         userDto.setLastName(user.getLastName());
         userDto.setMechanic(user.isMechanic());
 
-        LegalEntityDto legalEntityDto = new LegalEntityDto();
-        legalEntityDto.setId(user.getLegalEntity().getId());
-        legalEntityDto.setName(user.getLegalEntity().getName());
-        legalEntityDto.setAddress(user.getLegalEntity().getAddress());
-        legalEntityDto.setInn(user.getLegalEntity().getInn());
-
-        userDto.setLegalEntityDto(legalEntityDto);
+        setLegalEntityDtoToUserDto(user, userDto);
 
         return userDto;
 
@@ -50,13 +42,30 @@ public class UserMapperImpl implements UserMapper {
         user.setLastName(userDto.getLastName());
         user.setMechanic(userDto.isMechanic());
 
-        LegalEntity legalEntity = new LegalEntity();
-        legalEntity.setId(userDto.getLegalEntityDto().getId());
-        legalEntity.setInn(userDto.getLegalEntityDto().getInn());
-        legalEntity.setAddress(userDto.getLegalEntityDto().getAddress());
-        legalEntity.setName(userDto.getLegalEntityDto().getName());
-//        legalEntity.setUser(user);
-        user.setLegalEntity(legalEntity);
+        setLegalEntityDtoToUser(user, userDto);
+
         return user;
     }
-}
+
+    void setLegalEntityDtoToUserDto(User user, UserDto userDto){
+        if (user.getLegalEntity() != null) {
+            LegalEntityDto legalEntityDto = new LegalEntityDto();
+            legalEntityDto.setId(user.getLegalEntity().getId());
+            legalEntityDto.setName(user.getLegalEntity().getName());
+            legalEntityDto.setAddress(user.getLegalEntity().getAddress());
+            legalEntityDto.setInn(user.getLegalEntity().getInn());
+
+            userDto.setLegalEntity(legalEntityDto);
+        }
+    }
+
+    void setLegalEntityDtoToUser(User user, UserDto userDto){
+        if (userDto.getLegalEntity() != null) {
+            LegalEntity legalEntity = new LegalEntity();
+            legalEntity.setId(userDto.getLegalEntity().getId());
+            legalEntity.setInn(userDto.getLegalEntity().getInn());
+            legalEntity.setAddress(userDto.getLegalEntity().getAddress());
+            legalEntity.setName(userDto.getLegalEntity().getName());
+            user.setLegalEntity(legalEntity);
+        }
+    }}

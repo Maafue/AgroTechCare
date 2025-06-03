@@ -9,6 +9,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User create(User user) {
-        return new User();
+
+
+        return user;
     }
 }

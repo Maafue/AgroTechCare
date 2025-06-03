@@ -18,6 +18,6 @@ public class UserDto {
 //    private String passwordConfirmation;
     private boolean isMechanic;
 //    private Long legalEntityId;
-    private LegalEntityDto legalEntityDto;
+    private LegalEntityDto legalEntity;
 
 }

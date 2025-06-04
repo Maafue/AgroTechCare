@@ -22,6 +22,7 @@ public class LegalEntityController {
     public LegalEntityDto update(@RequestBody LegalEntityDto legalEntityDto) {
         LegalEntity legalEntity = legalEntityMapper.toEntity(legalEntityDto);
         LegalEntity updatedLegalEntity = legalEntityService.update(legalEntity);
+
         return legalEntityMapper.toDto(updatedLegalEntity);
     }
 }

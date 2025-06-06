@@ -16,4 +16,22 @@ public class UserServiceImpl implements UserService {
     public User create(User user) {
         return userDao.create(user);
     }
+
+
+    @Override
+    public User getById(Long id) {
+        return userDao.findById(id);
+    }
+
+    @Override
+    public User update(User user) {
+        return userDao.update(user);
+    }
+
+    @Override
+    public void delete(Long id) {
+        User user = getById(id);
+        // сделать проверку на null или обернуть в Optional
+        userDao.delete(user);
+    }
 }

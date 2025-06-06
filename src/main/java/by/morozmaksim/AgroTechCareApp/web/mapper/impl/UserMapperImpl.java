@@ -20,6 +20,9 @@ public class UserMapperImpl implements UserMapper {
         userDto.setFirstName(user.getFirstName());
         userDto.setMiddleName(user.getMiddleName());
         userDto.setLastName(user.getLastName());
+        userDto.setUsername(user.getUsername());
+        userDto.setPassword(user.getPassword());
+        userDto.setPasswordConfirmation(user.getPasswordConfirmation());
         userDto.setMechanic(user.isMechanic());
 
         setLegalEntityDtoToUserDto(user, userDto);
@@ -40,7 +43,9 @@ public class UserMapperImpl implements UserMapper {
         user.setMiddleName(userDto.getMiddleName());
         user.setLastName(userDto.getLastName());
         user.setMechanic(userDto.isMechanic());
-
+        user.setUsername(userDto.getUsername());
+        user.setPassword(userDto.getPassword());
+        user.setPasswordConfirmation(userDto.getPasswordConfirmation());
         setLegalEntityDtoToUser(user, userDto);
 
         return user;
@@ -66,5 +71,6 @@ public class UserMapperImpl implements UserMapper {
             legalEntity.setAddress(userDto.getLegalEntity().getAddress());
             legalEntity.setName(userDto.getLegalEntity().getName());
             user.setLegalEntity(legalEntity);
+            legalEntity.setUser(user);
         }
     }}

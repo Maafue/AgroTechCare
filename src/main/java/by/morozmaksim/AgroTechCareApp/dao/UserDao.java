@@ -6,4 +6,9 @@ public interface UserDao {
 
     User create(User user);
 
+    void delete(User user);
+
+    User findById(Long id);
+
+    User update(User user);
 }

@@ -6,4 +6,7 @@ public interface LegalEntityDao {
 
     LegalEntity update(LegalEntity legalEntity);
 
+    void delete(LegalEntity legalEntity);
+
+    LegalEntity findById(Long id);
 }

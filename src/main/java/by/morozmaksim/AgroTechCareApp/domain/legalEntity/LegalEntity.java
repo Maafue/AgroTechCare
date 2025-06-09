@@ -15,12 +15,16 @@ public class LegalEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "address")
     private String address;
+
     @Column(name = "inn")
     private String inn;
+
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
     private User user;

@@ -16,4 +16,14 @@ public class LegalEntityServiceImpl implements LegalEntityService {
     public LegalEntity update(LegalEntity legalEntity) {
         return legalEntityDao.update(legalEntity);
     }
+
+    @Override
+    public LegalEntity findById(Long id) {
+        return legalEntityDao.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        legalEntityDao.delete(findById(id));
+    }
 }

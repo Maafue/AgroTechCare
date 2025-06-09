@@ -1,8 +1,11 @@
 package by.morozmaksim.AgroTechCareApp.domain.user;
 
+import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -12,8 +15,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-
     private Long id;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -37,6 +40,8 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private LegalEntity legalEntity;
-//    private List<Contract> contracts;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contract> contracts;
 
 }

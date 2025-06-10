@@ -17,9 +17,8 @@ public class UserServiceImpl implements UserService {
         return userDao.create(user);
     }
 
-
     @Override
-    public User getById(Long id) {
+    public User findById(Long id) {
         return userDao.findById(id);
     }
 
@@ -30,8 +29,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long id) {
-        User user = getById(id);
-        // сделать проверку на null или обернуть в Optional
+        User user = findById(id);
         userDao.delete(user);
     }
+
 }

@@ -17,27 +17,29 @@ public class UserController {
 
 //    для каждого контроллера добавить обработку исключений, добавить валидацию в dto
 //    кэширование
+
     @PostMapping
-    public UserDto create(@RequestBody UserDto userDto){
+    public UserDto create(@RequestBody UserDto userDto) {
         User user = userMapper.toEntity(userDto);
         User createdUser = userService.create(user);
         return userMapper.toDto(createdUser);
     }
 
     @GetMapping("/{id}")
-    public UserDto getById(@PathVariable Long id){
-        User user = userService.getById(id);
+    public UserDto getById(@PathVariable Long id) {
+        User user = userService.findById(id);
         return userMapper.toDto(user);
     }
 
     @PutMapping
-    public UserDto update(@RequestBody UserDto userDto){
+    public UserDto update(@RequestBody UserDto userDto) {
         User user = userMapper.toEntity(userDto);
         User updatedUser = userService.update(user);
         return userMapper.toDto(updatedUser);
     }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         userService.delete(id);
     }
 

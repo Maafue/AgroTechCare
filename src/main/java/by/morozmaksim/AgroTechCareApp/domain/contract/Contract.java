@@ -4,7 +4,6 @@ import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -37,4 +36,16 @@ public class Contract {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "overdueDebt=" + overdueDebt +
+                ", debt=" + debt +
+                ", prepayment=" + prepayment +
+                ", endDate=" + endDate +
+                ", date=" + date +
+                ", number='" + number + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

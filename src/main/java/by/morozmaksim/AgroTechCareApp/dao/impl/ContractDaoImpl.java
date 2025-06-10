@@ -1,61 +1,64 @@
 package by.morozmaksim.AgroTechCareApp.dao.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.UserDao;
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.dao.ContractDao;
+import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public class UserDaoImpl implements UserDao {
+public class ContractDaoImpl implements ContractDao {
 
     SessionFactory sessionFactory = new Configuration()
             .configure("hibernate.cfg.xml")
             .buildSessionFactory();
 
     @Override
-    public User create(User user) {
+    public Contract findById(Long id) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        session.persist(user);
-
+        Contract contract = session.get(Contract.class, id);
         session.getTransaction().commit();
-        session.close();
-
-        return user;
+        return contract;
     }
 
     @Override
-    public User findById(Long id) {
+    public List<Contract> findAll() {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        User user = session.find(User.class, id);
+        List<Contract> contracts = session.createQuery("from Contract", Contract.class).getResultList();
         session.getTransaction().commit();
-        session.close();
-        return user;
+        return contracts;
     }
 
     @Override
-    public User update(User user) {
+    public Contract create(Contract contract) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        session.merge(user);
-
+        session.persist(contract);
         session.getTransaction().commit();
         session.close();
-        return user;
+        return contract;
     }
 
     @Override
-    public void delete(User user) {
+    public Contract update(Contract contract) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        session.remove(user);
+        session.merge(contract);
+        session.getTransaction().commit();
+        session.close();
+        return contract;
+    }
+
+    @Override
+    public void delete(Contract contract) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.remove(contract);
         session.getTransaction().commit();
         session.close();
     }

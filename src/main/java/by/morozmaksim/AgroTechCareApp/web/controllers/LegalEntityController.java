@@ -17,6 +17,7 @@ public class LegalEntityController {
 
     //Для каждого контроллера добавить обработку исключений, добавить валидацию в dto
     //кэширование
+
     @PutMapping
     public LegalEntityDto update(@RequestBody LegalEntityDto legalEntityDto) {
         LegalEntity legalEntity = legalEntityMapper.toEntity(legalEntityDto);
@@ -25,12 +26,13 @@ public class LegalEntityController {
     }
 
     @GetMapping("/{id}")
-    public LegalEntityDto getById(@PathVariable Long id){
+    public LegalEntityDto getById(@PathVariable Long id) {
         LegalEntity legalEntity = legalEntityService.findById(id);
         return legalEntityMapper.toDto(legalEntity);
     }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         legalEntityService.delete(id);
     }
 }

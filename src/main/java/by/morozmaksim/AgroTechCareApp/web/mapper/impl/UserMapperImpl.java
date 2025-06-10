@@ -51,7 +51,7 @@ public class UserMapperImpl implements UserMapper {
         return user;
     }
 
-    void setLegalEntityDtoToUserDto(User user, UserDto userDto){
+    void setLegalEntityDtoToUserDto(User user, UserDto userDto) {
         if (user.getLegalEntity() != null) {
             LegalEntityDto legalEntityDto = new LegalEntityDto();
             legalEntityDto.setId(user.getLegalEntity().getId());
@@ -63,7 +63,7 @@ public class UserMapperImpl implements UserMapper {
         }
     }
 
-    void setLegalEntityDtoToUser(User user, UserDto userDto){
+    void setLegalEntityDtoToUser(User user, UserDto userDto) {
         if (userDto.getLegalEntity() != null) {
             LegalEntity legalEntity = new LegalEntity();
             legalEntity.setId(userDto.getLegalEntity().getId());
@@ -73,4 +73,5 @@ public class UserMapperImpl implements UserMapper {
             user.setLegalEntity(legalEntity);
             legalEntity.setUser(user);
         }
-    }}
+    }
+}

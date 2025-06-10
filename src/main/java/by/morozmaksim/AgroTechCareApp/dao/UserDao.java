@@ -11,4 +11,5 @@ public interface UserDao {
     User findById(Long id);
 
     User update(User user);
+
 }

@@ -1,8 +1,8 @@
-package by.morozmaksim.AgroTechCareApp.dao;
+package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
 
-public interface UserDao {
+public interface UserRepository {
 
     User create(User user);
 

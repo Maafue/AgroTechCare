@@ -1,7 +1,7 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.ContractDao;
-import by.morozmaksim.AgroTechCareApp.dao.UserDao;
+import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
+import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;
@@ -15,38 +15,38 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ContractServiceImpl implements ContractService {
 
-    private final ContractDao contractDao;
-    private final UserDao userDao;
+    private final ContractRepository contractRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Contract findById(Long id) {
-        return contractDao.findById(id);
+        return contractRepository.findById(id);
     }
 
     @Override
     public List<Contract> findAll() {
-        return contractDao.findAll();
+        return contractRepository.findAll();
     }
 
     @Override
     public Contract create(Contract contract, Long userid) {
-        User user = userDao.findById(userid);
+        User user = userRepository.findById(userid);
         contract.setUser(user);
         contract.setDate(LocalDateTime.now());
-        contractDao.create(contract);
+        contractRepository.create(contract);
         return contract;
     }
 
     @Override
     public Contract update(Contract contract, Long userid) {
-        User user = userDao.findById(userid);
+        User user = userRepository.findById(userid);
         contract.setUser(user);
-        return contractDao.update(contract);
+        return contractRepository.update(contract);
     }
 
     @Override
     public void delete(Long id) {
         Contract contract = findById(id);
-        contractDao.delete(contract);
+        contractRepository.delete(contract);
     }
 }

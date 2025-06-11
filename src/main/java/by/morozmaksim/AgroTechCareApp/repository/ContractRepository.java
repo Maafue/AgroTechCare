@@ -1,10 +1,10 @@
-package by.morozmaksim.AgroTechCareApp.dao;
+package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 
 import java.util.List;
 
-public interface ContractDao {
+public interface ContractRepository {
     Contract findById(Long id);
     List<Contract> findAll();
     Contract create(Contract contract);

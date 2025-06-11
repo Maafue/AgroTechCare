@@ -1,6 +1,6 @@
-package by.morozmaksim.AgroTechCareApp.dao.impl;
+package by.morozmaksim.AgroTechCareApp.repository.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.ContractDao;
+import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class ContractDaoImpl implements ContractDao {
+public class ContractRepositoryImpl implements ContractRepository {
 
     SessionFactory sessionFactory = new Configuration()
             .configure("hibernate.cfg.xml")

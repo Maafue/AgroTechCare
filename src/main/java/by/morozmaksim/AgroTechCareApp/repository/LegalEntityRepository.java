@@ -1,8 +1,8 @@
-package by.morozmaksim.AgroTechCareApp.dao;
+package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 
-public interface LegalEntityDao {
+public interface LegalEntityRepository {
 
     LegalEntity update(LegalEntity legalEntity);
 

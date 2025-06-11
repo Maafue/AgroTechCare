@@ -1,45 +1,62 @@
-package by.morozmaksim.AgroTechCareApp.dao.impl;
+package by.morozmaksim.AgroTechCareApp.repository.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.LegalEntityDao;
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
+import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class LegalEntityDaoImpl implements LegalEntityDao {
+public class UserRepositoryImpl implements UserRepository {
 
     SessionFactory sessionFactory = new Configuration()
             .configure("hibernate.cfg.xml")
             .buildSessionFactory();
 
     @Override
-    public LegalEntity update(LegalEntity legalEntity) {
+    public User create(User user) {
         Session session = sessionFactory.openSession();
+
         session.beginTransaction();
-        session.merge(legalEntity);
+        session.persist(user);
+
         session.getTransaction().commit();
         session.close();
-        return legalEntity;
+
+        return user;
     }
 
     @Override
-    public void delete(LegalEntity legalEntity) {
+    public User findById(Long id) {
         Session session = sessionFactory.openSession();
+
         session.beginTransaction();
-        session.remove(legalEntity);
+        User user = session.find(User.class, id);
         session.getTransaction().commit();
         session.close();
+        return user;
     }
 
     @Override
-    public LegalEntity findById(Long id) {
+    public User update(User user) {
         Session session = sessionFactory.openSession();
+
         session.beginTransaction();
-        LegalEntity legalEntity = session.get(LegalEntity.class, id);
+        session.merge(user);
+
         session.getTransaction().commit();
         session.close();
-        return legalEntity;
+        return user;
+    }
+
+    @Override
+    public void delete(User user) {
+        Session session = sessionFactory.openSession();
+
+        session.beginTransaction();
+        session.remove(user);
+        session.getTransaction().commit();
+        session.close();
     }
 }

@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.LegalEntityDao;
+import by.morozmaksim.AgroTechCareApp.repository.LegalEntityRepository;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.service.LegalEntityService;
 import lombok.RequiredArgsConstructor;
@@ -10,20 +10,20 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LegalEntityServiceImpl implements LegalEntityService {
 
-    private final LegalEntityDao legalEntityDao;
+    private final LegalEntityRepository legalEntityRepository;
 
     @Override
     public LegalEntity update(LegalEntity legalEntity) {
-        return legalEntityDao.update(legalEntity);
+        return legalEntityRepository.update(legalEntity);
     }
 
     @Override
     public LegalEntity findById(Long id) {
-        return legalEntityDao.findById(id);
+        return legalEntityRepository.findById(id);
     }
 
     @Override
     public void delete(Long id) {
-        legalEntityDao.delete(findById(id));
+        legalEntityRepository.delete(findById(id));
     }
 }

@@ -1,62 +1,45 @@
-package by.morozmaksim.AgroTechCareApp.dao.impl;
+package by.morozmaksim.AgroTechCareApp.repository.impl;
 
-import by.morozmaksim.AgroTechCareApp.dao.UserDao;
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.repository.LegalEntityRepository;
+import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class LegalEntityRepositoryImpl implements LegalEntityRepository {
 
     SessionFactory sessionFactory = new Configuration()
             .configure("hibernate.cfg.xml")
             .buildSessionFactory();
 
     @Override
-    public User create(User user) {
+    public LegalEntity update(LegalEntity legalEntity) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        session.persist(user);
-
+        session.merge(legalEntity);
         session.getTransaction().commit();
         session.close();
-
-        return user;
+        return legalEntity;
     }
 
     @Override
-    public User findById(Long id) {
+    public void delete(LegalEntity legalEntity) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        User user = session.find(User.class, id);
+        session.remove(legalEntity);
         session.getTransaction().commit();
         session.close();
-        return user;
     }
 
     @Override
-    public User update(User user) {
+    public LegalEntity findById(Long id) {
         Session session = sessionFactory.openSession();
-
         session.beginTransaction();
-        session.merge(user);
-
+        LegalEntity legalEntity = session.get(LegalEntity.class, id);
         session.getTransaction().commit();
         session.close();
-        return user;
-    }
-
-    @Override
-    public void delete(User user) {
-        Session session = sessionFactory.openSession();
-
-        session.beginTransaction();
-        session.remove(user);
-        session.getTransaction().commit();
-        session.close();
+        return legalEntity;
     }
 }

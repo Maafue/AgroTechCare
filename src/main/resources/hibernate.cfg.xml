@@ -16,6 +16,7 @@
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.contract.Contract"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.brand.Brand"/>
+    <mapping class="by.morozmaksim.AgroTechCareApp.domain.technique.Technique"/>
 
   </session-factory>
 </hibernate-configuration>

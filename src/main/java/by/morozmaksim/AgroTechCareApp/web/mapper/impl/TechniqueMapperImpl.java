@@ -34,14 +34,13 @@ public class TechniqueMapperImpl implements TechniqueMapper {
     }
 
     @Override
-    public Technique toEntity(TechniqueDto techniqueDto, Brand brand) {
+    public Technique toEntity(TechniqueDto techniqueDto) {
         if (techniqueDto == null) return null;
         Technique technique = new Technique();
         technique.setId(techniqueDto.getId());
         technique.setName(techniqueDto.getName());
         technique.setVin(techniqueDto.getVin());
         technique.setGuarantee(techniqueDto.getGuarantee());
-        technique.setBrand(brand);
         return technique;
     }
 

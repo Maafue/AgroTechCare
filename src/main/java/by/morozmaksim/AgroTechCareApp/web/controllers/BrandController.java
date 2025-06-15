@@ -21,7 +21,7 @@ public class BrandController {
     //кэширование
 
     @PostMapping
-    public BrandDto toDto(@RequestBody BrandDto brandDto) {
+    public BrandDto create(@RequestBody BrandDto brandDto) {
         Brand brand = brandMapper.toEntity(brandDto);
         brandService.create(brand);
         return brandMapper.toDto(brand);

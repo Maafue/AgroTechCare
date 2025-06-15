@@ -3,11 +3,13 @@ package by.morozmaksim.AgroTechCareApp.service.impl;
 import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import by.morozmaksim.AgroTechCareApp.service.UserService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;

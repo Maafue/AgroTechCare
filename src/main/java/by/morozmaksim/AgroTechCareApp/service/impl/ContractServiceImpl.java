@@ -5,6 +5,7 @@ import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ContractServiceImpl implements ContractService {
 
     private final ContractRepository contractRepository;

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface TechniqueService {
 
-    Technique create(Technique technique);
-    Technique update(Technique technique);
+    Technique create(Technique technique, Long brandId);
+    Technique update(Technique technique, Long brandId);
     void delete(Long id);
     Technique findById(Long id);
     List<Technique> findAll();

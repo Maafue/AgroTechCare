@@ -10,6 +10,6 @@ public interface TechniqueMapper {
 
     TechniqueDto toDto(Technique technique);
 
-    Technique toEntity(TechniqueDto techniqueDto, Brand brand);
+    Technique toEntity(TechniqueDto techniqueDto);
     List<TechniqueDto> toDtos(List<Technique> techniques);
 }

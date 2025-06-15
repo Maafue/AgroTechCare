@@ -9,4 +9,5 @@ public interface LegalEntityRepository {
     void delete(LegalEntity legalEntity);
 
     LegalEntity findById(Long id);
+
 }

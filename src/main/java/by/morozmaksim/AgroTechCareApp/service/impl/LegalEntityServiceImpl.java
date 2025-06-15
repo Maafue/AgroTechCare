@@ -3,11 +3,13 @@ package by.morozmaksim.AgroTechCareApp.service.impl;
 import by.morozmaksim.AgroTechCareApp.repository.LegalEntityRepository;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.service.LegalEntityService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class LegalEntityServiceImpl implements LegalEntityService {
 
     private final LegalEntityRepository legalEntityRepository;

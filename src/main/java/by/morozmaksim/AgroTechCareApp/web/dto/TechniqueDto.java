@@ -11,7 +11,7 @@ public class TechniqueDto {
     private String name;
     private String vin;
     private LocalDateTime guarantee;
-    private BrandDto brand;
     private Long brandId;
+    private BrandDto brand;
 
 }

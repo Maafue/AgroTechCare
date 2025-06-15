@@ -11,12 +11,15 @@
     <property name="hibernate.show_sql">true</property>       <!-- Показывать SQL в консоли -->
     <property name="hibernate.format_sql">true</property>     <!-- Форматировать SQL для читаемости -->
     <property name="hibernate.highlight_sql">true</property>  <!-- Подсвечивать SQL в логах -->
-
+    <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.user.User"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.contract.Contract"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.brand.Brand"/>
     <mapping class="by.morozmaksim.AgroTechCareApp.domain.technique.Technique"/>
+    <mapping class="by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder"/>
+    <mapping class="by.morozmaksim.AgroTechCareApp.domain.job.Job"/>
+    <mapping class="by.morozmaksim.AgroTechCareApp.domain.workOrderJob.WorkOrderJob"/>
 
   </session-factory>
 </hibernate-configuration>

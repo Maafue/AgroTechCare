@@ -2,44 +2,43 @@ package by.morozmaksim.AgroTechCareApp.repository.impl;
 
 import by.morozmaksim.AgroTechCareApp.repository.LegalEntityRepository;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class LegalEntityRepositoryImpl implements LegalEntityRepository {
 
-    SessionFactory sessionFactory = new Configuration()
-            .configure("hibernate.cfg.xml")
-            .buildSessionFactory();
+    private final SessionFactory sessionFactory;
 
     @Override
     public LegalEntity update(LegalEntity legalEntity) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         session.merge(legalEntity);
         session.getTransaction().commit();
-        session.close();
         return legalEntity;
     }
 
     @Override
     public void delete(LegalEntity legalEntity) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         session.remove(legalEntity);
         session.getTransaction().commit();
-        session.close();
     }
 
     @Override
     public LegalEntity findById(Long id) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         LegalEntity legalEntity = session.get(LegalEntity.class, id);
         session.getTransaction().commit();
-        session.close();
         return legalEntity;
     }
+
 }

@@ -1,63 +1,64 @@
 package by.morozmaksim.AgroTechCareApp.repository.impl;
 
-import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
-import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
+import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
+import by.morozmaksim.AgroTechCareApp.repository.WorkOrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class ContractRepositoryImpl implements ContractRepository {
+public class WorkOrderRepositoryImpl implements WorkOrderRepository {
 
     private final SessionFactory sessionFactory;
 
     @Override
-    public Contract findById(Long id) {
+    public WorkOrder create(WorkOrder workOrder) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Contract contract = session.get(Contract.class, id);
+        session.persist(workOrder);
         session.getTransaction().commit();
-        return contract;
+
+        return workOrder;
     }
 
     @Override
-    public List<Contract> findAll() {
+    public WorkOrder update(WorkOrder workOrder) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<Contract> contracts = session.createQuery("from Contract", Contract.class).getResultList();
+        session.merge(workOrder);
         session.getTransaction().commit();
-        return contracts;
+        return workOrder;
     }
 
     @Override
-    public Contract create(Contract contract) {
+    public WorkOrder findById(Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.persist(contract);
+        WorkOrder workOrder = session.get(WorkOrder.class, id);
         session.getTransaction().commit();
-        return contract;
+        return workOrder;
     }
 
     @Override
-    public Contract update(Contract contract) {
+    public List<WorkOrder> findAll() {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.merge(contract);
+        List<WorkOrder> workOrders = session.createQuery("from WorkOrder", WorkOrder.class).getResultList();
         session.getTransaction().commit();
-        session.close();
-        return contract;
+        return workOrders;
     }
 
     @Override
-    public void delete(Contract contract) {
+    public void delete(WorkOrder workOrder) {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        session.remove(contract);
+        session.remove(workOrder);
         session.getTransaction().commit();
     }
 }

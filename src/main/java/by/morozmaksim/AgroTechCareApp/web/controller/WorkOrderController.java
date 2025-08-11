@@ -1,10 +1,6 @@
-package by.morozmaksim.AgroTechCareApp.web.controllers;
+package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
 import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
-import by.morozmaksim.AgroTechCareApp.service.LegalEntityService;
-import by.morozmaksim.AgroTechCareApp.service.TechniqueService;
 import by.morozmaksim.AgroTechCareApp.service.WorkOrderService;
 import by.morozmaksim.AgroTechCareApp.web.dto.WorkOrderDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.WorkOrderMapper;
@@ -20,8 +16,6 @@ public class WorkOrderController {
 
     private final WorkOrderService workOrderService;
     private final WorkOrderMapper workOrderMapper;
-    private final LegalEntityService legalEntityService;
-    private final TechniqueService techniqueService;
 
     @PostMapping
     public WorkOrderDto create(@RequestBody WorkOrderDto workOrderDto) {

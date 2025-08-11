@@ -1,6 +1,7 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
 import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
+import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
 import by.morozmaksim.AgroTechCareApp.repository.BrandRepository;
 import by.morozmaksim.AgroTechCareApp.service.BrandService;
 import jakarta.transaction.Transactional;
@@ -18,17 +19,17 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public Brand create(Brand brand) {
-        return brandRepository.create(brand);
+        return brandRepository.save(brand);
     }
 
     @Override
     public Brand update(Brand brand) {
-        return brandRepository.update(brand);
+        return brandRepository.save(brand);
     }
 
     @Override
     public Brand findById(Long id) {
-        return brandRepository.findById(id);
+        return brandRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Brand not found with id " + id));
     }
 
     @Override

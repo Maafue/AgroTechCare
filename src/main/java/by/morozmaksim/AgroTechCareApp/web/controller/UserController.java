@@ -1,4 +1,4 @@
-package by.morozmaksim.AgroTechCareApp.web.controllers;
+package by.morozmaksim.AgroTechCareApp.web.controller;
 
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import by.morozmaksim.AgroTechCareApp.service.UserService;
@@ -6,6 +6,8 @@ import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -31,6 +33,11 @@ public class UserController {
         return userMapper.toDto(user);
     }
 
+    @GetMapping
+    public List<UserDto> getAll() {
+        List<User> users = userService.findAll();
+        return userMapper.toDtos(users);
+    }
     @PutMapping
     public UserDto update(@RequestBody UserDto userDto) {
         User user = userMapper.toEntity(userDto);

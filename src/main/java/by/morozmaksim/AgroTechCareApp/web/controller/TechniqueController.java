@@ -1,8 +1,6 @@
-package by.morozmaksim.AgroTechCareApp.web.controllers;
+package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
-import by.morozmaksim.AgroTechCareApp.service.BrandService;
 import by.morozmaksim.AgroTechCareApp.service.TechniqueService;
 import by.morozmaksim.AgroTechCareApp.web.dto.TechniqueDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.TechniqueMapper;
@@ -18,7 +16,6 @@ public class TechniqueController {
 
     private final TechniqueService techniqueService;
     private final TechniqueMapper techniqueMapper;
-    private final BrandService brandService;
 
     @PostMapping
     public TechniqueDto create(@RequestBody TechniqueDto techniqueDto) {

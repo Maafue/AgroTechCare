@@ -1,13 +1,7 @@
 package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface WorkOrderRepository {
-    WorkOrder create (WorkOrder workOrder);
-    WorkOrder update (WorkOrder workOrder);
-    WorkOrder findById(Long id);
-    List<WorkOrder> findAll();
-    void delete(WorkOrder workOrder);
+public interface WorkOrderRepository extends JpaRepository<WorkOrder, Long> {
 }

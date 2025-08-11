@@ -1,15 +1,8 @@
 package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface BrandRepository {
-
-    Brand create(Brand brand);
-    Brand update(Brand brand);
-    Brand findById(Long id);
-    List<Brand> findAll();
-    void delete(Brand brand);
+public interface BrandRepository extends JpaRepository<Brand, Long> {
 
 }

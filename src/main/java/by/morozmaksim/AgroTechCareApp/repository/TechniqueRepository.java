@@ -1,15 +1,8 @@
 package by.morozmaksim.AgroTechCareApp.repository;
 
 import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface TechniqueRepository {
-
-    Technique create(Technique technique);
-    Technique update(Technique technique);
-    void delete(Technique technique);
-    Technique findById(Long id);
-    List<Technique> findAll();
+public interface TechniqueRepository extends JpaRepository<Technique, Long> {
 
 }

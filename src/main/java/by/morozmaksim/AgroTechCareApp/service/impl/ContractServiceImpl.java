@@ -1,11 +1,12 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
-import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
-import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
+import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;
 import by.morozmaksim.AgroTechCareApp.service.UserService;
+import by.morozmaksim.AgroTechCareApp.web.dto.ContractDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,10 +42,18 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public Contract update(Contract contract, Long userid) {
-        User user = userService.findById(userid);
-        contract.setUser(user);
-        return contractRepository.save(contract);
+    public Contract update(ContractDto contractDto) {
+        Contract excistingContract = findById(contractDto.getId());
+        excistingContract.setPrepayment(contractDto.getPrepayment());
+        excistingContract.setDebt(contractDto.getDebt());
+        excistingContract.setOverdueDebt(contractDto.getOverdueDebt());
+
+        if (contractDto.getUserId() != null){
+            User user = userService.findById(contractDto.getUserId());
+            excistingContract.setUser(user);
+        }
+
+        return contractRepository.save(excistingContract);
     }
 
     @Override

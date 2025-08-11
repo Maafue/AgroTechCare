@@ -6,6 +6,7 @@ import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
 import by.morozmaksim.AgroTechCareApp.repository.TechniqueRepository;
 import by.morozmaksim.AgroTechCareApp.service.BrandService;
 import by.morozmaksim.AgroTechCareApp.service.TechniqueService;
+import by.morozmaksim.AgroTechCareApp.web.dto.TechniqueDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,10 +29,15 @@ public class TechniqueServiceImpl implements TechniqueService {
     }
 
     @Override
-    public Technique update(Technique technique, Long brandId) {
-        Brand brand = brandService.findById(brandId);
-        technique.setBrand(brand);
-        return techniqueRepository.save(technique);
+    public Technique update(TechniqueDto techniqueDto) {
+        Technique excistingTechnique = findById(techniqueDto.getId());
+        excistingTechnique.setName(techniqueDto.getName());
+        excistingTechnique.setVin(techniqueDto.getVin());
+        excistingTechnique.setGuarantee(techniqueDto.getGuarantee());
+
+        Brand brand = brandService.findById(techniqueDto.getBrandId());
+        excistingTechnique.setBrand(brand);
+        return techniqueRepository.save(excistingTechnique);
     }
 
     @Override

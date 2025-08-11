@@ -4,6 +4,7 @@ import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
 import by.morozmaksim.AgroTechCareApp.repository.BrandRepository;
 import by.morozmaksim.AgroTechCareApp.service.BrandService;
+import by.morozmaksim.AgroTechCareApp.web.dto.BrandDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,10 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public Brand update(Brand brand) {
-        return brandRepository.save(brand);
+    public Brand update(BrandDto brandDto) {
+        Brand excistingBrand = findById(brandDto.getId());
+        excistingBrand.setName(brandDto.getName());
+        return brandRepository.save(excistingBrand);
     }
 
     @Override

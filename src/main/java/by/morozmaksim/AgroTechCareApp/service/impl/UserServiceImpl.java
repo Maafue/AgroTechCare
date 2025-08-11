@@ -1,9 +1,10 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
 import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
-import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
 import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.repository.UserRepository;
 import by.morozmaksim.AgroTechCareApp.service.UserService;
+import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(User user) {
-        return userRepository.save(user);
+    public User update(UserDto userDto) {
+        User excistingUser = findById(userDto.getId());
+        excistingUser.setFirstName(userDto.getFirstName());
+        excistingUser.setMiddleName(userDto.getMiddleName());
+        excistingUser.setLastName(userDto.getLastName());
+        excistingUser.setPassword(userDto.getPassword());
+        excistingUser.setPasswordConfirmation(userDto.getPasswordConfirmation());
+        return userRepository.save(excistingUser);
     }
 
     @Override

@@ -27,10 +27,10 @@ public class ContractController {
         return contractMapper.toDto(createdContract);
     }
 
-    @PutMapping
-    public ContractDto update(@RequestBody ContractDto contractDto) {
-        Contract contract = contractMapper.toEntity(contractDto);
-        Contract updatedContract = contractService.update(contract, contractDto.getUserId());
+    @PutMapping("/{id}")
+    public ContractDto update(@PathVariable("id") Long id, @RequestBody ContractDto contractDto) {
+        contractDto.setId(id);
+        Contract updatedContract = contractService.update(contractDto);
         return contractMapper.toDto(updatedContract);
     }
 

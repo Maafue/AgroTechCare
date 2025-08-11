@@ -26,11 +26,11 @@ public class BrandController {
         brandService.create(brand);
         return brandMapper.toDto(brand);
     }
-    @PutMapping
-    public BrandDto update(@RequestBody BrandDto brandDto) {
-        Brand brand = brandMapper.toEntity(brandDto);
-        brandService.update(brand);
-        return brandMapper.toDto(brand);
+    @PutMapping("/{id}")
+    public BrandDto update(@PathVariable("id") Long id, @RequestBody BrandDto brandDto) {
+        brandDto.setId(id);
+        Brand updatedBrand = brandService.update(brandDto);
+        return brandMapper.toDto(updatedBrand);
     }
     @GetMapping("/{id}")
     public BrandDto getById(@PathVariable Long id) {

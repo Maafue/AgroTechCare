@@ -1,13 +1,9 @@
 package by.morozmaksim.AgroTechCareApp.web.dto;
 
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class UserDto {
 
     private Long id;

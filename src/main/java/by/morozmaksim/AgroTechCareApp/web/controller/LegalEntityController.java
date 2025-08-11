@@ -7,6 +7,8 @@ import by.morozmaksim.AgroTechCareApp.web.mapper.LegalEntityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/legal_entity")
 @RequiredArgsConstructor
@@ -18,10 +20,11 @@ public class LegalEntityController {
     //Для каждого контроллера добавить обработку исключений, добавить валидацию в dto
     //кэширование
 
-    @PutMapping
-    public LegalEntityDto update(@RequestBody LegalEntityDto legalEntityDto) {
-        LegalEntity legalEntity = legalEntityMapper.toEntity(legalEntityDto);
-        LegalEntity updatedLegalEntity = legalEntityService.update(legalEntity);
+    @PutMapping("/{id}")
+    public LegalEntityDto update(@PathVariable Long id,
+                                 @RequestBody LegalEntityDto legalEntityDto) {
+        legalEntityDto.setId(id);
+        LegalEntity updatedLegalEntity = legalEntityService.update(legalEntityDto);
         return legalEntityMapper.toDto(updatedLegalEntity);
     }
 
@@ -31,8 +34,15 @@ public class LegalEntityController {
         return legalEntityMapper.toDto(legalEntity);
     }
 
+    @GetMapping
+    public List<LegalEntityDto> getAll(){
+        List<LegalEntity> legalEntities = legalEntityService.findAll();
+        return legalEntityMapper.toDtos(legalEntities);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         legalEntityService.delete(id);
     }
+
 }

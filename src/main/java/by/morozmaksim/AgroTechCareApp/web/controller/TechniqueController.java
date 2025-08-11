@@ -23,10 +23,11 @@ public class TechniqueController {
         Technique createdTechnique = techniqueService.create(technique, techniqueDto.getBrandId());
         return techniqueMapper.toDto(createdTechnique);
     }
-    @PutMapping
-    public TechniqueDto update(@RequestBody TechniqueDto techniqueDto) {
-        Technique technique = techniqueMapper.toEntity(techniqueDto);
-        Technique updatedTechnique = techniqueService.update(technique, techniqueDto.getBrandId());
+    @PutMapping("/{id}")
+    public TechniqueDto update(@PathVariable("id") Long id,
+                               @RequestBody TechniqueDto techniqueDto) {
+        techniqueDto.setId(id);
+        Technique updatedTechnique = techniqueService.update(techniqueDto);
         return techniqueMapper.toDto(updatedTechnique);
     }
     @GetMapping("/{id}")

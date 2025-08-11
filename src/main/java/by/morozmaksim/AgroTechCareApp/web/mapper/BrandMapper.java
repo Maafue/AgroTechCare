@@ -2,9 +2,11 @@ package by.morozmaksim.AgroTechCareApp.web.mapper;
 
 import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.web.dto.BrandDto;
+import org.mapstruct.Mapper;
 
 import java.util.List;
 
+@Mapper(componentModel = "spring")
 public interface BrandMapper {
 
     BrandDto toDto(Brand brand);

@@ -22,17 +22,17 @@ public class WorkOrderController {
         WorkOrder workOrder = workOrderMapper.toEntity(workOrderDto);
         WorkOrder createdWorkOrder = workOrderService.create(
                 workOrder,
-                workOrderDto.getTechnique_id(),
-                workOrderDto.getLegal_entity_id());
+                workOrderDto.getTechniqueId(),
+                workOrderDto.getLegalEntityId());
         return workOrderMapper.toDto(createdWorkOrder);
     }
-    @PutMapping
-    public WorkOrderDto update(@RequestBody WorkOrderDto workOrderDto) {
-        WorkOrder workOrder = workOrderMapper.toEntity(workOrderDto);
+    @PutMapping("/{id}")
+    public WorkOrderDto update(@PathVariable Long id,
+                               @RequestBody WorkOrderDto workOrderDto) {
+        workOrderDto.setId(id);
         WorkOrder updatedWorkOrder = workOrderService.update(
-                workOrder,
-                workOrderDto.getTechnique_id(),
-                workOrderDto.getLegal_entity_id());
+                workOrderDto
+        );
         return workOrderMapper.toDto(updatedWorkOrder);
     }
     @GetMapping("/{id}")

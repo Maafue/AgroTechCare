@@ -7,6 +7,9 @@ import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UserMapperImpl implements UserMapper {
 
@@ -49,6 +52,18 @@ public class UserMapperImpl implements UserMapper {
         setLegalEntityDtoToUser(user, userDto);
 
         return user;
+    }
+
+    @Override
+    public List<UserDto> toDtos(List<User> users) {
+        if (users == null) {
+            return null;
+        }
+        List<UserDto> userDtos = new ArrayList<>();
+        for (User user : users) {
+            userDtos.add(toDto(user));
+        }
+        return userDtos;
     }
 
     void setLegalEntityDtoToUserDto(User user, UserDto userDto) {

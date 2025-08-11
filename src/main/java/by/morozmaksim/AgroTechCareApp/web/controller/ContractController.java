@@ -1,4 +1,4 @@
-package by.morozmaksim.AgroTechCareApp.web.controllers;
+package by.morozmaksim.AgroTechCareApp.web.controller;
 
 import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;

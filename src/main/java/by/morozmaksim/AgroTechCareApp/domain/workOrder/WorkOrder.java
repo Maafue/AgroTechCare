@@ -1,13 +1,11 @@
 package by.morozmaksim.AgroTechCareApp.domain.workOrder;
 
-import by.morozmaksim.AgroTechCareApp.domain.job.Job;
 import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
@@ -49,13 +47,5 @@ public class WorkOrder {
 
     @Column(name = "contact_phone_number")
     private String contactPhoneNumber;
-
-    @ManyToMany
-    @JoinTable(
-            name = "work_orders_jobs",
-            joinColumns = @JoinColumn(name = "work_order_id"),
-            inverseJoinColumns = @JoinColumn(name = "job_id")
-    )
-    private List<Job> jobs;
 
 }

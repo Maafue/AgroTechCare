@@ -1,4 +1,4 @@
-package by.morozmaksim.AgroTechCareApp.web.controllers;
+package by.morozmaksim.AgroTechCareApp.web.controller;
 
 import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.service.BrandService;

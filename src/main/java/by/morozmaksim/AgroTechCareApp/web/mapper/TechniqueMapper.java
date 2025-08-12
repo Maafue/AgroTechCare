@@ -13,4 +13,5 @@ public interface TechniqueMapper {
     Technique toEntity(TechniqueDto techniqueDto);
 
     List<TechniqueDto> toDtos(List<Technique> techniques);
+
 }

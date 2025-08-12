@@ -8,7 +8,11 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface WorkOrderMapper {
+
     WorkOrderDto toDto(WorkOrder workOrder);
+
     WorkOrder toEntity(WorkOrderDto workOrderDto);
+
     List<WorkOrderDto> toDtos(List<WorkOrder> workOrders);
+
 }

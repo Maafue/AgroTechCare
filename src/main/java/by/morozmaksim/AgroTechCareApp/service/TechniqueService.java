@@ -8,8 +8,13 @@ import java.util.List;
 public interface TechniqueService {
 
     Technique create(Technique technique, Long brandId);
+
     Technique update(TechniqueDto techniqueDto);
+
     void delete(Long id);
+
     Technique findById(Long id);
+
     List<Technique> findAll();
+
 }

@@ -48,7 +48,8 @@ public class TechniqueServiceImpl implements TechniqueService {
 
     @Override
     public Technique findById(Long id) {
-        return techniqueRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Technique not found with id " + id));
+        return techniqueRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Technique not found with id " + id));
     }
 
     @Override

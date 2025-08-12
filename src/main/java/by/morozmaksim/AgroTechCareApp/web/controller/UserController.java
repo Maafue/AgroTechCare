@@ -5,6 +5,7 @@ import by.morozmaksim.AgroTechCareApp.service.UserService;
 import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,14 +22,14 @@ public class UserController {
 //    кэширование
 
     @PostMapping
-    public UserDto create(@RequestBody UserDto userDto) {
+    public UserDto create(@Validated @RequestBody UserDto userDto) {
         User user = userMapper.toEntity(userDto);
         User createdUser = userService.create(user);
         return userMapper.toDto(createdUser);
     }
 
     @PutMapping("/{id}")
-    public UserDto update(@PathVariable Long id, @RequestBody UserDto userDto) {
+    public UserDto update(@PathVariable Long id, @Validated @RequestBody UserDto userDto) {
         userDto.setId(id);
         User updatedUser = userService.update(userDto);
         return userMapper.toDto(updatedUser);

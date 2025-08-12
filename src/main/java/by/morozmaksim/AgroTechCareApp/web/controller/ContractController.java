@@ -5,6 +5,7 @@ import by.morozmaksim.AgroTechCareApp.service.ContractService;
 import by.morozmaksim.AgroTechCareApp.web.dto.ContractDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.ContractMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,14 +22,14 @@ public class ContractController {
     //кэширование
 
     @PostMapping
-    public ContractDto create(@RequestBody ContractDto contractDto) {
+    public ContractDto create(@Validated @RequestBody ContractDto contractDto) {
         Contract contract = contractMapper.toEntity(contractDto);
         Contract createdContract = contractService.create(contract, contractDto.getUserId());
         return contractMapper.toDto(createdContract);
     }
 
     @PutMapping("/{id}")
-    public ContractDto update(@PathVariable("id") Long id, @RequestBody ContractDto contractDto) {
+    public ContractDto update(@PathVariable("id") Long id, @Validated @RequestBody ContractDto contractDto) {
         contractDto.setId(id);
         Contract updatedContract = contractService.update(contractDto);
         return contractMapper.toDto(updatedContract);

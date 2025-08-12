@@ -5,6 +5,7 @@ import by.morozmaksim.AgroTechCareApp.service.BrandService;
 import by.morozmaksim.AgroTechCareApp.web.dto.BrandDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.BrandMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/brands")
 @RequiredArgsConstructor
+//@Validated
 public class BrandController {
 
     private final BrandService brandService;
@@ -21,29 +23,33 @@ public class BrandController {
     //кэширование
 
     @PostMapping
-    public BrandDto create(@RequestBody BrandDto brandDto) {
+    public BrandDto create(@Validated @RequestBody BrandDto brandDto) {
         Brand brand = brandMapper.toEntity(brandDto);
         brandService.create(brand);
         return brandMapper.toDto(brand);
     }
+
     @PutMapping("/{id}")
-    public BrandDto update(@PathVariable("id") Long id, @RequestBody BrandDto brandDto) {
+    public BrandDto update(@PathVariable("id") Long id, @Validated @RequestBody BrandDto brandDto) {
         brandDto.setId(id);
         Brand updatedBrand = brandService.update(brandDto);
         return brandMapper.toDto(updatedBrand);
     }
+
     @GetMapping("/{id}")
     public BrandDto getById(@PathVariable Long id) {
         Brand brand = brandService.findById(id);
         return brandMapper.toDto(brand);
     }
+
     @GetMapping
     public List<BrandDto> getAll() {
         List<Brand> brands = brandService.findAll();
         return brandMapper.toDtos(brands);
     }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         brandService.delete(id);
     }
 

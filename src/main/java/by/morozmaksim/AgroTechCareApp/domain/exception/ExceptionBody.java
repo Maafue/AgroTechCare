@@ -1,12 +1,10 @@
 package by.morozmaksim.AgroTechCareApp.domain.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Map;
 
 @Data
-@AllArgsConstructor
 public class ExceptionBody {
 
     private String message;
@@ -15,4 +13,5 @@ public class ExceptionBody {
     public ExceptionBody(String message) {
         this.message = message;
     }
+
 }

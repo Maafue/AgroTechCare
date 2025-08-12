@@ -44,6 +44,13 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Contract> contracts;
 
+    public void setLegalEntity(LegalEntity legalEntity) {
+        this.legalEntity = legalEntity;
+        if (legalEntity != null && legalEntity.getUser() != this) {
+            legalEntity.setUser(this);
+        }
+    }
+
     @Override
     public String toString() {
         return "User{" +

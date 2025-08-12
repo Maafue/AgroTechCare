@@ -14,6 +14,7 @@ public class Technique {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String vin;
     private LocalDateTime guarantee;

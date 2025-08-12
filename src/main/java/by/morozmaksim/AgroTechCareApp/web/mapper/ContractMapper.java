@@ -14,4 +14,5 @@ public interface ContractMapper {
     ContractDto toDto(Contract contract);
 
     List<ContractDto> toDtos(List<Contract> contracts);
+
 }

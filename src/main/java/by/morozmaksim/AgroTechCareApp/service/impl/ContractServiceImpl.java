@@ -48,7 +48,7 @@ public class ContractServiceImpl implements ContractService {
         excistingContract.setDebt(contractDto.getDebt());
         excistingContract.setOverdueDebt(contractDto.getOverdueDebt());
 
-        if (contractDto.getUserId() != null){
+        if (contractDto.getUserId() != null) {
             User user = userService.findById(contractDto.getUserId());
             excistingContract.setUser(user);
         }

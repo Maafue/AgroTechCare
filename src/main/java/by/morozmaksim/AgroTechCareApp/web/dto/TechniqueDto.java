@@ -1,6 +1,7 @@
 package by.morozmaksim.AgroTechCareApp.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,11 +11,16 @@ public class TechniqueDto {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
+
+    @NotBlank(message = "Поле name не может быть пустым.")
     private String name;
+
     private String vin;
     private LocalDateTime guarantee;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long brandId;
+
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private BrandDto brand;
 

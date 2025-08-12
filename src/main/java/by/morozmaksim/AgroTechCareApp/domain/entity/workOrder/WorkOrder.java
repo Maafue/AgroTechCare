@@ -1,7 +1,7 @@
-package by.morozmaksim.AgroTechCareApp.domain.workOrder;
+package by.morozmaksim.AgroTechCareApp.domain.entity.workOrder;
 
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.entity.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.entity.technique.Technique;
 import jakarta.persistence.*;
 import lombok.Data;
 

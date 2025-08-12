@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.entity.technique.Technique;
 import by.morozmaksim.AgroTechCareApp.service.TechniqueService;
 import by.morozmaksim.AgroTechCareApp.web.dto.TechniqueDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.TechniqueMapper;

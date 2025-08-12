@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.domain.entity.user.User;
 import by.morozmaksim.AgroTechCareApp.service.UserService;
 import by.morozmaksim.AgroTechCareApp.web.dto.UserDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.UserMapper;

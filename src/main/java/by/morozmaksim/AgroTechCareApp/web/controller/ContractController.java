@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
+import by.morozmaksim.AgroTechCareApp.domain.entity.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;
 import by.morozmaksim.AgroTechCareApp.web.dto.ContractDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.ContractMapper;

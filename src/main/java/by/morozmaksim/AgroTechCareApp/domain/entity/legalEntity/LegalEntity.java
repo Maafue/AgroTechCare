@@ -1,10 +1,8 @@
-package by.morozmaksim.AgroTechCareApp.domain.legalEntity;
+package by.morozmaksim.AgroTechCareApp.domain.entity.legalEntity;
 
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import by.morozmaksim.AgroTechCareApp.domain.entity.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.web.bind.annotation.Mapping;
 
 @Data
 @Entity

@@ -1,4 +1,4 @@
-package by.morozmaksim.AgroTechCareApp.domain.brand;
+package by.morozmaksim.AgroTechCareApp.domain.entity.brand;
 
 import jakarta.persistence.*;
 import lombok.Data;

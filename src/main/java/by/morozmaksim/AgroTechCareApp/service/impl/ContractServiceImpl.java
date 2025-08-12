@@ -1,8 +1,8 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
-import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
+import by.morozmaksim.AgroTechCareApp.domain.entity.contract.Contract;
 import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
-import by.morozmaksim.AgroTechCareApp.domain.user.User;
+import by.morozmaksim.AgroTechCareApp.domain.entity.user.User;
 import by.morozmaksim.AgroTechCareApp.repository.ContractRepository;
 import by.morozmaksim.AgroTechCareApp.service.ContractService;
 import by.morozmaksim.AgroTechCareApp.service.UserService;

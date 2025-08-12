@@ -1,6 +1,6 @@
-package by.morozmaksim.AgroTechCareApp.domain.technique;
+package by.morozmaksim.AgroTechCareApp.domain.entity.technique;
 
-import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
+import by.morozmaksim.AgroTechCareApp.domain.entity.brand.Brand;
 import jakarta.persistence.*;
 import lombok.Data;
 

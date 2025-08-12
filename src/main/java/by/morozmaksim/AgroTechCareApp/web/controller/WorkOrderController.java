@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
+import by.morozmaksim.AgroTechCareApp.domain.entity.workOrder.WorkOrder;
 import by.morozmaksim.AgroTechCareApp.service.WorkOrderService;
 import by.morozmaksim.AgroTechCareApp.web.dto.WorkOrderDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.WorkOrderMapper;

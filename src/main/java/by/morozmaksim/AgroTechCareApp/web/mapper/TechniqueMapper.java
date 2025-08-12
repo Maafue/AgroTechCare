@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.mapper;
 
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.entity.technique.Technique;
 import by.morozmaksim.AgroTechCareApp.web.dto.TechniqueDto;
 import org.mapstruct.Mapper;
 

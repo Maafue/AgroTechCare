@@ -1,7 +1,7 @@
-package by.morozmaksim.AgroTechCareApp.domain.user;
+package by.morozmaksim.AgroTechCareApp.domain.entity.user;
 
-import by.morozmaksim.AgroTechCareApp.domain.contract.Contract;
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.entity.contract.Contract;
+import by.morozmaksim.AgroTechCareApp.domain.entity.legalEntity.LegalEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 

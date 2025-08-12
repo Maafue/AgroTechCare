@@ -1,9 +1,9 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
 import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
-import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
+import by.morozmaksim.AgroTechCareApp.domain.entity.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.entity.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.entity.workOrder.WorkOrder;
 import by.morozmaksim.AgroTechCareApp.repository.WorkOrderRepository;
 import by.morozmaksim.AgroTechCareApp.service.LegalEntityService;
 import by.morozmaksim.AgroTechCareApp.service.TechniqueService;

@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.controller;
 
-import by.morozmaksim.AgroTechCareApp.domain.legalEntity.LegalEntity;
+import by.morozmaksim.AgroTechCareApp.domain.entity.legalEntity.LegalEntity;
 import by.morozmaksim.AgroTechCareApp.service.LegalEntityService;
 import by.morozmaksim.AgroTechCareApp.web.dto.LegalEntityDto;
 import by.morozmaksim.AgroTechCareApp.web.mapper.LegalEntityMapper;

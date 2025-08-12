@@ -1,8 +1,8 @@
 package by.morozmaksim.AgroTechCareApp.service.impl;
 
-import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
+import by.morozmaksim.AgroTechCareApp.domain.entity.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.domain.exception.ResourceNotFoundException;
-import by.morozmaksim.AgroTechCareApp.domain.technique.Technique;
+import by.morozmaksim.AgroTechCareApp.domain.entity.technique.Technique;
 import by.morozmaksim.AgroTechCareApp.repository.TechniqueRepository;
 import by.morozmaksim.AgroTechCareApp.service.BrandService;
 import by.morozmaksim.AgroTechCareApp.service.TechniqueService;

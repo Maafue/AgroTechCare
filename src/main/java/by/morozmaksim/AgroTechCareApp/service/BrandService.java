@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.service;
 
-import by.morozmaksim.AgroTechCareApp.domain.brand.Brand;
+import by.morozmaksim.AgroTechCareApp.domain.entity.brand.Brand;
 import by.morozmaksim.AgroTechCareApp.web.dto.BrandDto;
 
 import java.util.List;

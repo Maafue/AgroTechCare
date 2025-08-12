@@ -1,6 +1,6 @@
 package by.morozmaksim.AgroTechCareApp.web.mapper;
 
-import by.morozmaksim.AgroTechCareApp.domain.workOrder.WorkOrder;
+import by.morozmaksim.AgroTechCareApp.domain.entity.workOrder.WorkOrder;
 import by.morozmaksim.AgroTechCareApp.web.dto.WorkOrderDto;
 import org.mapstruct.Mapper;
 

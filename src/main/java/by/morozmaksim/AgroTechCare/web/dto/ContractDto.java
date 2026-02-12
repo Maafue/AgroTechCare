@@ -2,6 +2,7 @@ package by.morozmaksim.AgroTechCare.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -23,8 +24,8 @@ public class ContractDto {
     private double debt;
     private double overdueDebt;
 
-//    @NotBlank(message = "Поле userId не может быть пустым.")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotNull(message = "Поле userId не может быть пустым.")
     private Long userId;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>by.morozmaksim</groupId>
-    <artifactId>AgroTechCareApp</artifactId>
+    <artifactId>agrotechcare</artifactId>
     <version>1.0</version>
-    <name>AgroTechCare</name>
+    <name>agrotechcare</name>
     <description>Project for AgroTechCare co.</description>
     <url/>
     <licenses>

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: agro-tech-care-postgres
+    environment:
+      POSTGRES_DB: db_agrotechcare
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "45432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

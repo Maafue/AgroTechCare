@@ -4,13 +4,13 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
+    url: ${DB_URL:jdbc:postgresql://localhost:45432/db_agrotechcare}
+    username: ${DB_USERNAME:user_agrotechcare}
     password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
-      ddl-auto: ${DDL_AUTO}
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:

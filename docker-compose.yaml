@@ -4,8 +4,8 @@ services:
     container_name: agro-tech-care-postgres
     environment:
       POSTGRES_DB: db_agrotechcare
-      POSTGRES_USER: user_agrotechcare
-      POSTGRES_PASSWORD: pwd_agrotechcare
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "45432:5432"
     volumes:

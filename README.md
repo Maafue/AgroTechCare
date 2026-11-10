@@ -1,0 +1,1 @@
+скопировать .env.example → .env, docker compose up -d, запустить приложение.

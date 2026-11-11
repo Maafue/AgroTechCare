@@ -59,7 +59,7 @@
 3. Запустить приложение — из IntelliJ IDEA (класс `AgroTechCareApplication`) или командой:
 
    ```bash
-   mvn spring-boot:run
+   ./mvnw spring-boot:run
    ```
 
    Приложение само прочитает `.env` из корня проекта, а Flyway при старте применит миграции.

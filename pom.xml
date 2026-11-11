@@ -29,6 +29,7 @@
     <properties>
         <java.version>21</java.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+<!--        Docker 29: нужен Testcontainers >= 1.21.4; убрать после обновления Spring Boot -->
         <testcontainers.version>1.21.4</testcontainers.version>
     </properties>
 

@@ -9,10 +9,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Testcontainers
-public class FlywayMigrationTest {
+class FlywayMigrationTest {
 
     @Container
     @ServiceConnection
@@ -22,7 +23,7 @@ public class FlywayMigrationTest {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    void testMigrationWork() {
+    void shouldApplyV1Migration() {
         String sql = """
                 SELECT EXISTS(
                     SELECT
@@ -34,6 +35,6 @@ public class FlywayMigrationTest {
                         AND fsh.success = ?)
                 """;
         Boolean migrationApplied = jdbcTemplate.queryForObject(sql, Boolean.class, "1", true);
-        Assertions.assertThat(migrationApplied).isTrue();
+        assertThat(migrationApplied).isTrue();
     }
 }

@@ -17,7 +17,7 @@ class FlywayMigrationTest {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    void shouldApplyV1Migration() {
+    void shouldApplyV2Migration() {
         String sql = """
                 SELECT EXISTS(
                     SELECT
@@ -28,7 +28,7 @@ class FlywayMigrationTest {
                         fsh.version = ?
                         AND fsh.success = ?)
                 """;
-        Boolean migrationApplied = jdbcTemplate.queryForObject(sql, Boolean.class, "1", true);
+        Boolean migrationApplied = jdbcTemplate.queryForObject(sql, Boolean.class, "2", true);
         assertThat(migrationApplied).isTrue();
     }
 }

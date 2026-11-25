@@ -29,7 +29,7 @@ public class Brand {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Brand.class.hashCode();
     }
 
     public Brand(String name) {

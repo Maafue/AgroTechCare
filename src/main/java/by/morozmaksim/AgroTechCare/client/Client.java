@@ -45,7 +45,7 @@ public class Client {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Client.class.hashCode();
     }
 
     public Client(ClientType type, String name, String phone) {

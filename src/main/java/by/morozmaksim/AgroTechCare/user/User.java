@@ -56,7 +56,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return User.class.hashCode();
     }
 
     public User(String username, String passwordHash, String lastName, String firstName, Role role, Boolean active) {

@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -21,6 +22,7 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Contract {
 
+    @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -61,10 +63,10 @@ public class Contract {
     }
 
     public void addMachine(Machine machine){
-        machines.add(machine);
+        machines.add(Objects.requireNonNull(machine));
     }
     public void removeMachine(Machine machine){
-        machines.remove(machine);
+        machines.remove(Objects.requireNonNull(machine));
     }
 
     public Set<Machine> getMachines() {

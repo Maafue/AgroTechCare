@@ -66,21 +66,22 @@ public class CatalogRepositoryTest {
 
         entityManager.clear();
 
-        Job savedJob = jobRepository.findById(job.getId()).orElseThrow();
+        Job reloadedJob = jobRepository.findById(job.getId()).orElseThrow();
 
-        assertThat(savedJob.equals(job)).isTrue();
-        assertThat(savedJob.getNormHours() == null).isTrue();
-        assertThat(savedJob.getName().equals(job.getName())).isTrue();
-        assertThat(savedJob.getPrice() == null).isTrue();
+        assertThat(reloadedJob.equals(job)).isTrue();
+        assertThat(reloadedJob.getNormHours() == null).isTrue();
+        assertThat(reloadedJob.getName().equals(job.getName())).isTrue();
+        assertThat(reloadedJob.getPrice() == null).isTrue();
     }
 
     @Test
     void shouldNotSavePartWithDuplicateArticle() {
         Part part = new Part("article", "part");
         partRepository.saveAndFlush(part);
-        Part partWithDuplicateArticle = new Part("article", "part");
-        assertThatThrownBy(() -> {
 
+        Part partWithDuplicateArticle = new Part("article", "part");
+
+        assertThatThrownBy(() -> {
             partRepository.saveAndFlush(partWithDuplicateArticle);
         })
                 .isInstanceOf(DataIntegrityViolationException.class)
@@ -90,8 +91,8 @@ public class CatalogRepositoryTest {
     void shouldRejectPartWithNegativePrice(){
         Part part = new Part("article", "part");
         part.setPrice(BigDecimal.valueOf(-1.00));
-        assertThatThrownBy(() -> {
 
+        assertThatThrownBy(() -> {
             partRepository.saveAndFlush(part);
         })
                 .isInstanceOf(DataIntegrityViolationException.class)
@@ -100,10 +101,9 @@ public class CatalogRepositoryTest {
     @Test
     void shouldRejectJobWithNegativePrice(){
         Job job = new Job("job");
-
         job.setPrice(BigDecimal.valueOf(-1.00));
-        assertThatThrownBy(() -> {
 
+        assertThatThrownBy(() -> {
             jobRepository.saveAndFlush(job);
         })
                 .isInstanceOf(DataIntegrityViolationException.class)
@@ -112,10 +112,9 @@ public class CatalogRepositoryTest {
     @Test
     void shouldRejectJobWithNegativeNormHours(){
         Job job = new Job("job");
-
         job.setNormHours(BigDecimal.valueOf(-1.00));
-        assertThatThrownBy(() -> {
 
+        assertThatThrownBy(() -> {
             jobRepository.saveAndFlush(job);
         })
                 .isInstanceOf(DataIntegrityViolationException.class)
